@@ -1,66 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto de Navegação e Autenticação
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação web utilizando **Laravel** com funcionalidades de navegação, autenticação e visualização de usuários.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Dashboard:** Página principal após login, exibindo informações relevantes.
+- **Users:** Visualização da lista de usuários cadastrados na aplicação.
+- **Autenticação:** Sistema de login e logout para o usuário.
+- **Dropdown de Configurações:** Acesso rápido ao perfil do usuário e opção de logout.
+- **Responsividade:** A interface se adapta a diferentes tamanhos de tela, incluindo uma versão móvel da barra de navegação.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologias Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Laravel**: Framework PHP utilizado para o backend.
+- **Tailwind CSS**: Framework CSS para o design da interface.
+- **Alpine.js**: Biblioteca JavaScript para interatividade no frontend.
 
-## Learning Laravel
+## Como Baixar e Rodar o Projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Clonar o Repositório
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### Primeiro, clone o repositório em seu ambiente local utilizando o Git:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone https://github.com/username/projeto.git
+cd projeto
+```
 
-## Laravel Sponsors
+### 2. Instalar as Dependências
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### Se você não tiver o Composer instalado, instale-o primeiro seguindo as instruções em getcomposer.org.
 
-### Premium Partners
+#### Depois, instale as dependências do projeto:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+Copiar código
+composer install
+```
 
-## Contributing
+### 3. Configurar o Ambiente
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Copie o arquivo .env.example para .env:
 
-## Code of Conduct
+```bash
+Copiar código
+cp .env.example .env
+```
+#### Abra o arquivo .env e configure as credenciais do banco de dados e outras variáveis de ambiente necessárias, como a chave de sessão e outras configurações específicas.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Gerar a Chave de Aplicação
 
-## Security Vulnerabilities
+#### Execute o comando abaixo para gerar a chave da aplicação, que é usada para criptografar as sessões e outras variáveis:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+Copiar código
+php artisan key:generate
+```
 
-## License
+### 5. Criar o Banco de Dados
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Crie o banco de dados e execute as migrações para configurar a estrutura do banco de dados:
+
+```bash
+Copiar código
+php artisan migrate
+```
+
+#### Se houver dados iniciais para popular a aplicação, você pode rodar o seeder:
+
+```bash
+Copiar código
+php artisan db:seed
+```
+
+### 6. Executar a Aplicação
+
+#### Agora, você pode rodar o servidor de desenvolvimento do Laravel:
+
+```bash
+Copiar código
+php artisan serve
+```
+
+#### O servidor estará disponível em http://127.0.0.1:8000.
+
+### 7. Acessar a Aplicação
+
+#### Abra o navegador e acesse http://127.0.0.1:8000. Você deverá ser redirecionado para a tela de login, onde pode entrar com suas credenciais e acessar o Dashboard e a lista de Users.
+
+## Estrutura do Projeto
+
+```app/Http/Controllers``` Contém os controladores que gerenciam a lógica da aplicação.
+
+```resources/views``` Contém os arquivos Blade para a interface do usuário.
+
+```routes/web.php``` Define as rotas da aplicação.
+
+```.env``` Arquivo de configuração das variáveis de ambiente.
+
+```composer.json``` Arquivo de configuração do Composer.
+
+## Contribuindo
+
+### Se você deseja contribuir para o projeto, fique à vontade para enviar pull requests. Certifique-se de seguir as boas práticas de desenvolvimento e de escrever testes para suas mudanças.
+
+Faça um fork do repositório.
+
+Crie uma branch para suas alterações (git checkout -b minha-branch).
+
+Faça suas alterações e adicione testes.
+
+Envie suas alterações para o seu fork (git push origin minha-branch).
+
+Abra um pull request para a branch principal.
+
+## Licença
+
+Este projeto é licenciado sob a MIT License.
